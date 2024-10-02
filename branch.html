@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Management</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/navbar.css"> <!-- Navbar CSS -->
+    <link rel="stylesheet" href="css/branch.css"> <!-- Custom styles for the branch page -->
+</head>
+<body>
+    <div id="navbar"></div> <!-- For the navigation bar -->
+
+    <main>
+        <div class="actions">
+            <button class="create-btn" onclick="openCreateForm()"><i class="fas fa-plus"></i> Add Branch</button>
+            <input type="text" id="searchInput" class="search-bar" onkeyup="searchTable()" placeholder="Search Branches">
+        </div>
+
+        <div class="table-container">
+            <table id="branchesTable">
+                <thead>
+                    <tr>
+                        <th>Branch Name</th>
+                        <th>Branch Code</th>
+                        <th>IFSC</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically from Firebase -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Popup Form for Creating/Editing Branch -->
+        <div id="popupForm" class="form-popup">
+            <div class="form-container">
+                <h2 id="formTitle">Add Branch</h2>
+
+                <label for="branch-name">Branch Name</label>
+                <input type="text" id="branch-name" required>
+
+                <label for="branch-code">Branch Code</label>
+                <input type="text" id="branch-code" required>
+
+                <label for="ifsc">IFSC</label>
+                <input type="text" id="ifsc" required>
+
+                <label for="address">Address</label>
+                <input type="text" id="address" required>
+
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+
+                <!-- Buttons for submission and cancel -->
+                <div class="form-buttons">
+                    <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
+                    <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase and JS Files -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/navbar.js"></script> <!-- Navbar JS -->
+    <script src="js/branch.js"></script> <!-- Branch JS -->
+</body>
+</html>

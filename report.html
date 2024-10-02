@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/navbar.css"> <!-- Universal navbar CSS -->
+    <link rel="stylesheet" href="css/report.css"> <!-- Custom styles for the report page -->
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main>
+        <div class="actions">
+            <button class="export-btn" onclick="exportToPDF()"><i class="fas fa-file-pdf"></i> Export to PDF</button>
+            <button class="export-btn" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> Export to Excel</button>
+            <button class="export-btn" onclick="shareReport()"><i class="fas fa-share-alt"></i> Share</button>
+
+            <!-- Searchable Dropdown and Account Details -->
+            <div class="search-container">
+                <label for="account-dropdown">Select Account: </label>
+                <select id="account-dropdown" onchange="populateAccountDetails()">
+                    <!-- Options will be dynamically populated from Firebase -->
+                </select>
+                <input type="text" id="account-name" placeholder="Account Name" writingsuggestions="on" readonly>
+                <input type="text" id="account-number" placeholder="Account Number" writingsuggestions="on" readonly>
+                <input type="text" id="od-limit" placeholder="OD Limit" readonly> <!-- New OD Limit field -->
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>UTR Number</th> <!-- UTR Number Column Added -->
+                        <th>Transaction Type</th>
+                        <th>Description</th>
+                        <th>Credit</th>
+                        <th>Debit</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically from Firebase -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/navbar.js"></script> 
+    <script src="js/email.js"></script>
+    <script src="js/report.js"></script> <!-- Script for handling export and report actions -->
+    <script src="js/ledgerdatapull.js"></script> <!-- Ledger data pull script -->
+</body>
+</html>

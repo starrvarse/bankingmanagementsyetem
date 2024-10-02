@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Transfer</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/navbar.css"> <!-- Universal navbar CSS -->
+    <link rel="stylesheet" href="css/fund_transfer.css"> <!-- Custom styles for the fund transfer page -->
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main>
+        <div class="actions">
+            <button class="create-btn" onclick="openCreateForm()"><i class="fas fa-plus"></i> Create Transfer</button>
+            <input type="text" id="searchInput" class="search-bar" onkeyup="searchTable()" placeholder="Search Transfers">
+        </div>
+
+        <div class="table-container">
+            <table id="transfersTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Debit/From Account</th>
+                        <th>Credit/To Account</th>
+                        <th>Transfer Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>UTR Number</th> <!-- Added UTR Number Column -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically from Firebase -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Popup Form for Creating/Editing Transfer -->
+        <div id="popupForm" class="form-popup">
+            <div class="form-container horizontal-form">
+                <h2 id="formTitle">Create Transfer</h2>
+
+                <!-- Row 1: Date and Transfer Type -->
+                <div class="form-row">
+                    <label for="transfer-date">Date</label>
+                    <input type="date" id="transfer-date" name="transfer-date" required>
+
+                    <label for="transfer-type">Transfer Type</label>
+                    <select id="transfer-type" name="transfer-type">
+                        <option value="RTGS">RTGS</option>
+                        <option value="NEFT">NEFT</option>
+                        <option value="IMPS">IMPS</option>
+                    </select>
+                </div>
+
+                <!-- Row 2: From Account -->
+                <div class="form-row">
+                    <label for="from-account">Debit/From Account</label>
+                    <input type="text" id="from-account" name="from-account" placeholder="Search From Account..." onkeyup="searchFromAccount()" required>
+                    <label for="from-account-name">Account Name</label>
+                    <input type="text" id="from-account-name" name="from-account-name" readonly>
+                    <label for="from-account-number">Account Number</label>
+                    <input type="text" id="from-account-number" name="from-account-number" readonly>
+                </div>
+
+                <!-- Row 3: To Account -->
+                <div class="form-row">
+                    <label for="to-account">Credit/To Account</label>
+                    <input type="text" id="to-account" name="to-account" placeholder="Search To Account..." onkeyup="searchToAccount()" required>
+                    <label for="to-account-name">Account Name</label>
+                    <input type="text" id="to-account-name" name="to-account-name" readonly>
+                    <label for="to-account-number">Account Number</label>
+                    <input type="text" id="to-account-number" name="to-account-number" readonly>
+                </div>
+
+                <!-- Row 4: Description, Amount, and UTR Number -->
+                <div class="form-row">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" placeholder="Add a description">
+
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" step="0.01" required>
+                </div>
+
+                <!-- Row 5: UTR Number -->
+                <div class="form-row">
+                    <label for="utr-number">UTR Number</label> <!-- Added UTR Number Field -->
+                    <input type="text" id="utr-number" name="utr-number" placeholder="Enter UTR Number">
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-row buttons">
+                    <button type="submit" class="submit-btn" onclick="submitForm()">Submit</button>
+                    <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Firebase and JS files -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/navbar.js"></script> <!-- Script for loading navbar -->
+    <script src="js/fund_transfer.js"></script> <!-- Script for handling popup form and transfer actions -->
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* Universal nav bar styling with 3D look but narrower */
+nav {
+    background: linear-gradient(90deg, #4a90e2, #9013fe);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+    font-family: Arial, sans-serif;
+    height: 50px; /* Reduced height for a narrower nav bar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add some padding for the 3D look */
+}
+
+/* Left-aligned nav items */
+ul.nav-left {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul.nav-left li {
+    padding: 0 15px; /* Adjust padding for narrower space */
+    display: flex;
+    align-items: center;
+}
+
+ul.nav-left li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px; /* Slightly smaller font size */
+    font-weight: bold;
+    padding: 10px 15px; /* Adjust padding for narrower design */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Slight shadow for 3D look */
+}
+
+/* Right-aligned nav items */
+ul.nav-right {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+ul.nav-right li {
+    padding: 0 15px; /* Adjust padding for narrower space */
+}
+
+ul.nav-right li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px; /* Slightly smaller font size */
+    font-weight: bold;
+    padding: 10px 15px; /* Adjust padding for narrower design */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* 3D look */
+}
+
+ul.nav-left li a i, ul.nav-right li a i {
+    margin-right: 5px; /* Slightly reduced spacing for icons */
+    font-size: 16px; /* Slightly smaller icon size */
+}
+
+/* Hover effect for 3D */
+ul.nav-left li a:hover, ul.nav-right li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Enhance 3D effect on hover */
+    transform: translateY(-2px); /* Small pop-out effect */
+}
+
+/* Active link styling */
+ul.nav-left li a.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* Media queries for responsive behavior */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    ul.nav-left, ul.nav-right {
+        flex-direction: column;
+    }
+
+    ul.nav-left li, ul.nav-right li {
+        text-align: center;
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/navbar.css"> <!-- Universal navbar CSS -->
+    <link rel="stylesheet" href="css/accounts.css"> <!-- Custom styles for the accounts page -->
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main>
+        <div class="actions">
+            <button class="create-btn" onclick="openCreateForm()"><i class="fas fa-plus"></i> Create Account</button>
+            <input type="text" id="searchInput" class="search-bar" onkeyup="searchTable()" placeholder="Search Accounts">
+        </div>
+
+        <div class="table-container">
+            <table id="accountsTable">
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Account Name</th>
+                        <th>Account Type</th>
+                        <th>OD Limit</th> <!-- OD Limit column -->
+                        <th>Branch Name</th> <!-- Branch Name column -->
+                        <th>Email</th> <!-- New Email column -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically from Firebase -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Popup Form for Creating/Editing Account -->
+        <div id="popupForm" class="form-popup">
+            <div class="form-container">
+                <h2 id="formTitle">Create Account</h2>
+
+                <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" name="account-number" required>
+
+                <label for="account-name">Account Name</label>
+                <input type="text" id="account-name" name="account-name" required>
+
+                <label for="account-type">Account Type</label>
+                <select id="account-type" name="account-type">
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+
+                <label for="od-limit">OD Limit</label> <!-- OD Limit field -->
+                <input type="number" id="od-limit" name="od-limit" step="0.01" placeholder="Enter OD Limit" required>
+
+                <label for="branch-name">Branch Name</label> <!-- Branch Name dropdown -->
+                <select id="branch-name" name="branch-name" required>
+                    <!-- Options will be dynamically populated from Firebase -->
+                </select>
+
+                <label for="email">Email</label> <!-- New Email field -->
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+                <button type="submit" class="submit-btn" onclick="submitForm()">Submit</button>
+                <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/navbar.js"></script> <!-- Script for loading navbar -->
+    <script src="js/accounts.js"></script> <!-- Script for handling popup form and account actions -->
+</body>
+</html>
