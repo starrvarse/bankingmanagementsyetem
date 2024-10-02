@@ -175,6 +175,16 @@ Copy code
 }
 ```
 ## Make Contributions
+![App Screenshot](https://archive.org/download/bms_20241002/dashboard.png)
+![App Screenshot](https://archive.org/download/bms_20241002/accounts.png)
+![App Screenshot](https://archive.org/download/bms_20241002/transactions.png)
+![App Screenshot](https://archive.org/download/bms_20241002/statement.png)
+![App Screenshot](https://archive.org/download/bms_20241002/searching-transaction.png)
+![App Screenshot](https://archive.org/download/bms_20241002/cashdeposit.png)
+![App Screenshot](https://archive.org/download/bms_20241002/barnches.png)
+![App Screenshot](https://archive.org/download/bms_20241002/bank%20info.png)
+![App Screenshot](https://archive.org/download/bms_20241002/Statementpdf%20mail.png)
+![App Screenshot](https://archive.org/download/bms_20241002/statementpdf.png)
 
 Contributing  
 Fork the repository.  
