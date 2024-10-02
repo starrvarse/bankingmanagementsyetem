@@ -1,6 +1,6 @@
 
 ##Banking Management System
-##Description
+
 A comprehensive Banking Management System (BMS) built with Firebase, HTML, CSS, and JavaScript. The system offers account management, 
 cash transactions, fund transfers, user management, branch details, and reporting functionality. 
 It integrates with Firebase Authentication for user sign-up/sign-in and Realtime Database for storing account and transaction data.
